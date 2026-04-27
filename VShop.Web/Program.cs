@@ -1,7 +1,22 @@
+using VShop.Web.Services;
+using VShop.Web.Services.Contracts;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddHttpClient<IProductService, ProductService>("ProductApi", c =>
+{
+    c.BaseAddress = new Uri(builder.Configuration["ServiceUri:ProductApi"]);
+    c.DefaultRequestHeaders.Add("Connection", "Keep-Alive");
+    c.DefaultRequestHeaders.Add("Keep-Alive", "3600");
+    c.DefaultRequestHeaders.Add("User-Agent", "HttpClientFactory-ProductApi");
+});
+
+builder.Services.AddScoped<IProductService, ProductService>();
+builder.Services.AddScoped<ICategoryService, CategoryService>();
+
 
 var app = builder.Build();
 
