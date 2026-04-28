@@ -1,4 +1,9 @@
 <Solution>
-  <Project Path="VShop.ProductApi/VShop.ProductApi.csproj" />
-  <Project Path="VShop.Web/VShop.Web.csproj" Id="5012505e-ce31-4595-8864-05b1918f6510" />
+  <Folder Name="/Backend/">
+    <Project Path="VShop.IdentityServer/VShop.IdentityServer.csproj" Id="4ad9351b-8085-4967-b551-c4e61ebf3d15" />
+    <Project Path="VShop.ProductApi/VShop.ProductApi.csproj" />
+  </Folder>
+  <Folder Name="/Frontend/">
+    <Project Path="VShop.Web/VShop.Web.csproj" Id="5012505e-ce31-4595-8864-05b1918f6510" />
+  </Folder>
 </Solution>
